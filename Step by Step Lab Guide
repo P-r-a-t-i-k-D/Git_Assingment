@@ -1,0 +1,198 @@
+Git Assignments
+
+Assignment - 1
+
+Steps:
+
+Create a new folder:
+mkdir GitProject
+cd GitProject
+
+Create required files:
+touch Code.txt Log.txt Output.txt
+
+Initialize Git repository:
+git init
+
+Stage Code.txt and Output.txt:
+git add Code.txt Output.txt
+
+Commit staged files:
+git commit -m "Initial commit: Added Code.txt and Output.txt"
+
+Push to GitHub:
+git remote add origin <your-github-repo-url>
+git push -u origin master
+
+Assignment - 2
+
+Steps:
+
+Create a Git working directory with feature1.txt and feature2.txt in master branch:
+mkdir GitProject2
+cd GitProject2
+git init
+touch feature1.txt feature2.txt
+git add feature1.txt feature2.txt
+git commit -m "Added feature1.txt and feature2.txt in master branch"
+
+Create branches develop, feature1, and feature2:
+git branch develop
+git branch feature1
+git branch feature2
+
+Create develop.txt in develop branch without staging/committing:
+git checkout develop
+touch develop.txt
+
+Stash the file and checkout to feature1 branch:
+git stash
+git checkout feature1
+
+Create new.txt in feature1 branch, stage and commit:
+touch new.txt
+git add new.txt
+git commit -m "Added new.txt in feature1 branch"
+
+Checkout to develop, unstash and commit:
+git checkout develop
+git stash pop
+git add develop.txt
+git commit -m "Added develop.txt in develop branch"
+
+Assignment - 3
+
+Steps:
+
+Create a Git working directory with Develop, F1, and f2 branches:
+mkdir GitProject3
+cd GitProject3
+git init
+
+Commit main.txt in master branch:
+touch main.txt
+git add main.txt
+git commit -m "Added main.txt in master branch"
+
+Create Develop, F1, and f2 branches:
+git branch develop
+git branch F1
+git branch f2
+
+Create and commit files in respective branches:
+git checkout develop
+touch develop.txt
+git add develop.txt
+git commit -m "Added develop.txt in develop branch"
+
+git checkout F1
+touch f1.txt
+git add f1.txt
+git commit -m "Added f1.txt in F1 branch"
+
+git checkout f2
+touch f2.txt
+git add f2.txt
+git commit -m "Added f2.txt in f2 branch"
+
+Push all branches to GitHub:
+git checkout master
+git push -u origin master
+git push -u origin develop
+git push -u origin F1
+git push -u origin f2
+
+Delete f2 branch locally and on GitHub:
+git branch -d f2
+git push origin --delete f2
+
+Assignment - 4
+
+Steps:
+
+Create and commit master.txt in master branch:
+touch master.txt
+git add master.txt
+git commit -m "Added master.txt in master branch"
+
+Create branches public1, public2, and private:
+git branch public1
+git branch public2
+git branch private
+
+Create and commit files in respective branches:
+git checkout public1
+touch public1.txt
+git add public1.txt
+git commit -m "Added public1.txt in public1 branch"
+
+git checkout public2
+touch public2.txt
+git add public2.txt
+git commit -m "Added public2.txt in public2 branch"
+
+Merge public1 and public2 into master:
+git checkout master
+git merge public1 -m "Merged public1 into master"
+git merge public2 -m "Merged public2 into master"
+
+Edit master.txt in private, stage, and commit:
+git checkout private
+echo "Updated content" >> master.txt
+git add master.txt
+git commit -m "Updated master.txt in private branch"
+
+Update branches public1, public2, and master with private changes:
+git checkout public1
+git merge private -m "Merged private changes into public1"
+
+git checkout public2
+git merge private -m "Merged private changes into public2"
+
+git checkout master
+git merge private -m "Merged private changes into master"
+
+Update private with the latest master changes:
+git checkout private
+git merge master -m "Merged latest master changes into private"
+
+Assignment - 5
+
+Steps:
+
+Initialize GitFlow workflow:
+git init
+
+Create branches Develop, Feature, Release, and Hotfix:
+git branch develop
+git branch feature-xyz
+git branch release-v1.0
+git branch hotfix-urgent
+
+Feature development:
+git checkout feature-xyz
+touch feature.txt
+git add feature.txt
+git commit -m "Added feature.txt"
+
+Merge feature into Develop and Release:
+git checkout develop
+git merge feature-xyz -m "Merged feature into develop"
+git checkout release-v1.0
+git merge develop -m "Merged develop into release"
+
+Deploy Release into Master:
+git checkout master
+git merge release-v1.0 -m "Merged release into master"
+
+Hotfix process:
+git checkout hotfix-urgent
+touch urgent.txt
+git add urgent.txt
+git commit -m "Added urgent.txt as a hotfix"
+git checkout master
+git merge hotfix-urgent -m "Merged hotfix into master"
+
+Update Develop with Hotfix:
+git checkout develop
+git merge hotfix-urgent -m "Merged hotfix into develop"
