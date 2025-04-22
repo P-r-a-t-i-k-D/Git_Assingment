@@ -1,198 +1,256 @@
-Git Assignments
+Module-2: GIT Assignment – 1
 
-Assignment - 1
+Based on what you have learnt in the class, do the following steps: 
+● Create a new folder 
+● Put the following files in the folder ○ Code.txt ○ Log.txt ○ Output.txt 
+● Stage the Code.txt and Output.txt files 
+● Commit them 
+● And finally push them to GitHub Please share the commands for the above points
 
-Steps:
+Goal: Create a folder, add 3 files, stage 2, commit them, and push to GitHub.
 
-Create a new folder:
-mkdir GitProject
-cd GitProject
+🔧 Steps and Commands:
+# 1. Create a folder and go inside
+mkdir git-assignment-1
+cd git-assignment-1
 
-Create required files:
+# 2. Initialize a Git repository
+git init
+
+# 3. Create the required files
 touch Code.txt Log.txt Output.txt
 
-Initialize Git repository:
-git init
-
-Stage Code.txt and Output.txt:
+# 4. Stage only Code.txt and Output.txt
 git add Code.txt Output.txt
 
-Commit staged files:
-git commit -m "Initial commit: Added Code.txt and Output.txt"
+# 5. Commit the staged files
+git commit -m "Add Code.txt and Output.txt"
 
-Push to GitHub:
+# 6. Connect to GitHub and push (replace <URL> with your GitHub repo link)
 git remote add origin <your-github-repo-url>
-git push -u origin master
+git branch -M main
+git push -u origin main
 
-Assignment - 2
 
-Steps:
 
-Create a Git working directory with feature1.txt and feature2.txt in master branch:
-mkdir GitProject2
-cd GitProject2
+
+Module-2: GIT Assignment – 2
+
+Do the following tasks: 
+● Create a git working directory with feature1.txt and feature2.txt in the master branch 
+● Create 3 branches develop, feature1 and feature2 
+● In develop branch create develop.txt, do not stage or commit it 
+● Stash this file, and checkout to feature1 branch 
+● Create new.txt file in feature1 branch, stage and commit this file 
+● Checkout to develop, unstash this file and commit 
+Please submit all the git commands used to do the above steps
+
+Goal: Use branching, stashing, committing, and switching.
+
+🔧 Steps and Commands:
+# 1. Create a working directory and initialize Git
+mkdir git-assignment-2
+cd git-assignment-2
 git init
-touch feature1.txt feature2.txt
-git add feature1.txt feature2.txt
-git commit -m "Added feature1.txt and feature2.txt in master branch"
 
-Create branches develop, feature1, and feature2:
+# 2. Create and commit feature1.txt and feature2.txt in master
+touch feature1.txt feature2.txt
+git add .
+git commit -m "Add feature1.txt and feature2.txt in master"
+
+# 3. Create three branches: develop, feature1, feature2
 git branch develop
 git branch feature1
 git branch feature2
 
-Create develop.txt in develop branch without staging/committing:
+# 4. Checkout to develop branch and create develop.txt
 git checkout develop
 touch develop.txt
 
-Stash the file and checkout to feature1 branch:
+# 5. Stash the uncommitted file
 git stash
-git checkout feature1
 
-Create new.txt in feature1 branch, stage and commit:
+# 6. Switch to feature1 branch and create new.txt
+git checkout feature1
 touch new.txt
 git add new.txt
-git commit -m "Added new.txt in feature1 branch"
+git commit -m "Add new.txt in feature1 branch"
 
-Checkout to develop, unstash and commit:
+# 7. Go back to develop, unstash, and commit
 git checkout develop
 git stash pop
 git add develop.txt
-git commit -m "Added develop.txt in develop branch"
+git commit -m "Add develop.txt after unstashing"
 
-Assignment - 3
 
-Steps:
+Module-2: GIT Assignment – 3
 
-Create a Git working directory with Develop, F1, and f2 branches:
-mkdir GitProject3
-cd GitProject3
+You have been asked to: 
+● Create a git working directory, with the following branches 
+○ Develop 
+○ F1
+○ f2
+● In the master branch, commit main.txt file 
+● Put develop.txt in develop branch, f1.txt and f2.txt in f1 and f2 respectively 
+● Push all these branches to github 
+● On local delete f2 branch 
+● Delete the same branch on github as well
+
+Goal: Work with multiple branches and remote operations.
+
+🔧 Steps and Commands:
+# 1. Create a new directory and init Git
+mkdir git-assignment-3
+cd git-assignment-3
 git init
 
-Commit main.txt in master branch:
+# 2. In master branch, create and commit main.txt
 touch main.txt
 git add main.txt
-git commit -m "Added main.txt in master branch"
+git commit -m "Add main.txt in master"
 
-Create Develop, F1, and f2 branches:
+# 3. Create develop, f1, and f2 branches
 git branch develop
-git branch F1
+git branch f1
 git branch f2
 
-Create and commit files in respective branches:
+# 4. Add develop.txt in develop
 git checkout develop
 touch develop.txt
 git add develop.txt
-git commit -m "Added develop.txt in develop branch"
+git commit -m "Add develop.txt"
 
-git checkout F1
+# 5. Add f1.txt in f1
+git checkout f1
 touch f1.txt
 git add f1.txt
-git commit -m "Added f1.txt in F1 branch"
+git commit -m "Add f1.txt"
 
+# 6. Add f2.txt in f2
 git checkout f2
 touch f2.txt
 git add f2.txt
-git commit -m "Added f2.txt in f2 branch"
+git commit -m "Add f2.txt"
 
-Push all branches to GitHub:
-git checkout master
+# 7. Push all branches to GitHub (replace with your repo URL)
+git remote add origin <your-github-repo-url>
 git push -u origin master
-git push -u origin develop
-git push -u origin F1
-git push -u origin f2
+git push origin develop
+git push origin f1
+git push origin f2
 
-Delete f2 branch locally and on GitHub:
+# 8. Delete f2 branch locally and remotely
 git branch -d f2
 git push origin --delete f2
 
-Assignment - 4
 
-Steps:
+Module-2: GIT Assignment - 4
 
-Create and commit master.txt in master branch:
+ You have been asked to: 
+● Put master.txt on master branch, stage and commit 
+● Create 3 branches: public1, public2 and private 
+● Put public1.txt on public 1 branch, stage and commit 
+● Merge public 1 on master branch 
+● Merge public 2 on master branch 
+● Edit master.txt on private branch, stage and commit 
+● Now update branch public 1 and public 2 with new master code in private 
+● Also update new master code on master 
+● Finally update all the code on the private branch
+
+Goal: Merge and sync changes across multiple branches.
+
+🔧 Steps and Commands:
+# 1. Create a new directory and initialize Git
+mkdir git-assignment-4
+cd git-assignment-4
+git init
+
+# 2. On master branch
 touch master.txt
 git add master.txt
-git commit -m "Added master.txt in master branch"
+git commit -m "Add master.txt"
 
-Create branches public1, public2, and private:
+# 3. Create branches
 git branch public1
 git branch public2
 git branch private
 
-Create and commit files in respective branches:
+# 4. public1 branch
 git checkout public1
 touch public1.txt
 git add public1.txt
-git commit -m "Added public1.txt in public1 branch"
+git commit -m "Add public1.txt"
 
+# 5. public2 branch
 git checkout public2
 touch public2.txt
 git add public2.txt
-git commit -m "Added public2.txt in public2 branch"
+git commit -m "Add public2.txt"
 
-Merge public1 and public2 into master:
+# 6. Merge public1 and public2 into master
 git checkout master
-git merge public1 -m "Merged public1 into master"
-git merge public2 -m "Merged public2 into master"
+git merge public1
+git merge public2
 
-Edit master.txt in private, stage, and commit:
+# 7. On private branch, edit master.txt
 git checkout private
-echo "Updated content" >> master.txt
+echo "Update from private" >> master.txt
 git add master.txt
-git commit -m "Updated master.txt in private branch"
+git commit -m "Update master.txt in private"
 
-Update branches public1, public2, and master with private changes:
+# 8. Update public1 and public2 from master
 git checkout public1
-git merge private -m "Merged private changes into public1"
+git merge master
 
 git checkout public2
-git merge private -m "Merged private changes into public2"
+git merge master
 
-git checkout master
-git merge private -m "Merged private changes into master"
-
-Update private with the latest master changes:
+# 9. Update private with the final master version
 git checkout private
-git merge master -m "Merged latest master changes into private"
+git merge master
 
-Assignment - 5
+Module-2: GIT Assignment – 5 (GitFlow Workflow)
 
-Steps:
+You have been asked to: 
+● Create a gitflow workflow architecture on git 
+● Create all the required branches 
+● Starting from the feature branch, push the branch to the master, following the 
+architecture 
+● Push a urgent.txt on master using hotfix
 
-Initialize GitFlow workflow:
+Goal: Follow GitFlow structure including hotfix.
+
+🔧 Steps and Commands:
+# 1. Create working directory
+mkdir git-assignment-5
+cd git-assignment-5
 git init
 
-Create branches Develop, Feature, Release, and Hotfix:
-git branch develop
-git branch feature-xyz
-git branch release-v1.0
-git branch hotfix-urgent
+# 2. Create develop branch
+git checkout -b develop
 
-Feature development:
-git checkout feature-xyz
-touch feature.txt
-git add feature.txt
-git commit -m "Added feature.txt"
+# 3. Create a feature branch from develop
+git checkout -b feature/user-auth
+touch login.txt
+git add login.txt
+git commit -m "Add login feature"
 
-Merge feature into Develop and Release:
+# 4. Merge feature into develop
 git checkout develop
-git merge feature-xyz -m "Merged feature into develop"
-git checkout release-v1.0
-git merge develop -m "Merged develop into release"
+git merge feature/user-auth
 
-Deploy Release into Master:
+# 5. Merge develop into master
 git checkout master
-git merge release-v1.0 -m "Merged release into master"
+git merge develop
 
-Hotfix process:
-git checkout hotfix-urgent
+# 6. Hotfix: urgent.txt on master
+git checkout -b hotfix/urgent-fix
 touch urgent.txt
 git add urgent.txt
-git commit -m "Added urgent.txt as a hotfix"
-git checkout master
-git merge hotfix-urgent -m "Merged hotfix into master"
+git commit -m "Hotfix: urgent.txt fix"
 
-Update Develop with Hotfix:
-git checkout develop
-git merge hotfix-urgent -m "Merged hotfix into develop"
+# 7. Merge hotfix into master
+git checkout master
+git merge hotfix/urgent-fix
+
+
